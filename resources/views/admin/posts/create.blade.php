@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('admin.posts.store') }}" method="POST">
+    <form action="{{ route('admin.posts.store') }}"  enctype="multipart/form-data" method="POST">
         @csrf
         <div class="form-group">
             <label for="title">titolo</label>
@@ -19,7 +19,7 @@
 {{-- TODO mettere anteprima immagine --}}
             <div class="form-group">
                 <label for="image">immagine</label>
-                <input type="url" class="form-control" name="image" id="image" value="{{ old('image') }}">
+                <input type="file" class="form-control" name="image" id="image">
             </div>
             <a href="{{ route('admin.posts.index') }}"><button type="button" class="btn btn-primary">torna alla
                     lista</button></a>
@@ -30,7 +30,7 @@
 
             <div class="form-group mt-3 ">
                 <label for="category_id">seleziona categoria</label>
-                <select class="form-control" id="category_id" name="category_id ">
+                <select class="form-control" id="category_id" name="category_id">
                     <option value="">nessuna selezione</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}">

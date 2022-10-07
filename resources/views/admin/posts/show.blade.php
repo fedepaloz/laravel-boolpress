@@ -8,11 +8,11 @@
                     <h4 class="card-title">{{ $post->title }}</h4>
                     <h4>
                         {{$post->category->label}}
-                       {{--  @if ($post->category)
+                        @if ($post->category)
                             {{ $post->category->label }}
                         @else
                             nessuna
-                        @endif --}}
+                        @endif
                     </h4>
                     <p class="card-text">{{ $post->content }}</p>
                     <div class="col mb-5"><img src="{{ $post->image }}" alt=""></div>
